@@ -64,6 +64,18 @@
         </p>
         <img src="/img/tma-2_modular.png" class="h-40 w-40 object-cover" alt="">
       </div>
+
+      <div class="grid grid-cols-3 gap-x-3 my-6">
+        <div
+          class="bg-white shadow-xs rounded-lg flex flex-col p-3"
+          v-for="(product, productIndex) in products"
+          :key="`home-product_${productIndex}`"
+        >
+          <img :src="product.image" alt="TMA" />
+          <span class="my-1" v-text="product.name" />
+          <span class="font-semibold">USD {{ product.price }}</span>
+        </div>
+      </div>
     </main>
 
     <home-search v-else />
@@ -82,7 +94,12 @@ export default {
     searchActive: false,
     searchQuery: '',
     categories: 'Headphones,Headbands,Earpods,Cable'.split(','),
-    selectedCategory: 0
+    selectedCategory: 0,
+    products: [
+      { name: 'TMA-2 HD Wireless', price: 350, image: '/img/tma-2_modular.png' },
+      { name: 'CO2 Cable', price: 25, image: '/img/co2_cable.png' },
+      { name: 'CO2 Cable', price: 25, image: '/img/co2_cable.png' }
+    ]
   })
 }
 </script>
